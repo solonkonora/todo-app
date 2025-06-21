@@ -1,0 +1,5 @@
+<form (ngSubmit)="addTodo()" class="todo-form">
+  <input type="text" [(ngModel)]="title" name="title" placeholder="Title" required maxlength="255" />
+  <textarea [(ngModel)]="description" name="description" placeholder="Description" required></textarea>
+  <button type="submit" [disabled]="!title.trim() || !description.trim()">Add Todo</button>
+</form>

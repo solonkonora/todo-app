@@ -1,0 +1,17 @@
+.todo-item {
+  background: #f9f9f9;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.todo-item.completed h3,
+.todo-item.completed p {
+  text-decoration: line-through;
+  color: #888;
+}
+.todo-item button {
+  margin-right: 0.5rem;
+}

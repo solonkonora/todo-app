@@ -1,0 +1,9 @@
+<div class="todos-container">
+  <h1>Todo List</h1>
+  <app-todo-form (todoAdd)="addTodo($event)"></app-todo-form>
+  <app-todo-list
+    [todos]="todos"
+    (update)="updateTodo($event)"
+    (delete)="deleteTodo($event)"
+  ></app-todo-list>
+</div> 

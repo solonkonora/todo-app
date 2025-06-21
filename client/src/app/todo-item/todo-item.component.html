@@ -1,0 +1,15 @@
+<div class="todo-item" [class.completed]="todo.completed">
+  <input type="checkbox" [checked]="todo.completed" (change)="toggleComplete()" />
+  <div *ngIf="!editing">
+    <h3>{{ todo.title }}</h3>
+    <p>{{ todo.description }}</p>
+    <button (click)="startEdit()">Edit</button>
+    <button (click)="onDelete()">Delete</button>
+  </div>
+  <div *ngIf="editing">
+    <input [(ngModel)]="editTitle" maxlength="255" />
+    <textarea [(ngModel)]="editDescription"></textarea>
+    <button (click)="saveEdit()">Save</button>
+    <button (click)="cancelEdit()">Cancel</button>
+  </div>
+</div>

@@ -4,17 +4,9 @@
   </div>
   
   <div class="app-content">
-    <div class="stats-container">
-      <div class="stat">
-        <strong>{{ todos.length }}</strong> Total
-      </div>
-      <div class="stat">
-        <strong>{{ getActiveCount() }}</strong> Active
-      </div>
-      <div class="stat">
-        <strong>{{ getCompletedCount() }}</strong> Completed
-      </div>
-    </div>
+    <!-- Replace the stats section with the new component -->
+    <app-todo-stats [todos]="todos"></app-todo-stats>
+  
     
     <app-todo-form (todoAdd)="addTodo($event)"></app-todo-form>
     <app-todo-list

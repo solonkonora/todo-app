@@ -14,7 +14,14 @@
 }
 
 .todo-item.completed {
-  border-left: 4px solid var(--success);
+  border-left: 4px solid #10b981;
+  background-color: #f8f8f8;
+}
+
+.todo-item.completed .todo-title,
+.todo-item.completed .todo-description {
+  text-decoration: line-through;
+  color: #6b7280;
 }
 
 .todo-content {

@@ -16,7 +16,7 @@ export class TodoStatsComponent {
     return this.todos.length;
   }
   get completed() {
-    return this.todos.filter(t => t.completed).length;
+    return this.todos.filter((t) => t.completed).length;
   }
   get remaining() {
     return this.total - this.completed;

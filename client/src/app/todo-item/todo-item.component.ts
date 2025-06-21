@@ -25,29 +25,55 @@ export class TodoItemComponent {
     this.editDescription = this.todo.description;
   }
 
-saveEdit() {
-  console.log('saveEdit called', this.editTitle, this.editDescription);
-  if (this.editTitle.trim() && this.editDescription.trim()) {
-    console.log('Emitting update event');
-    this.update.emit({
-      ...this.todo,
-      title: this.editTitle,
-      description: this.editDescription
-    });
-    this.editing = false;
+  saveEdit() {
+    console.log('saveEdit called', this.editTitle, this.editDescription);
+    if (this.editTitle.trim() && this.editDescription.trim()) {
+      console.log('Emitting update event');
+      this.update.emit({
+        ...this.todo,
+        title: this.editTitle,
+        description: this.editDescription,
+      });
+      this.editing = false;
+    }
   }
-}
 
   cancelEdit() {
     this.editing = false;
   }
 
+  // toggleComplete() {
+  //   console.log('Toggle complete called for todo:', this.todo);
+
+  //   // Create a clean update object
+  //   const updatedTodo = {
+  //     ...this.todo,
+  //     completed: !this.todo.completed,
+  //     // Only set completed_at if task is being marked complete
+  //     completed_at: !this.todo.completed ? new Date() : null,
+  //   };
+
+  //   console.log('Emitting updated todo:', updatedTodo);
+  //   this.update.emit(updatedTodo);
+  // }
+
   toggleComplete() {
-    this.update.emit({
+    console.log('Toggle complete called for todo:', this.todo);
+
+    // Create a clean update object and cast it to Todo
+    const updatedTodo = {
       ...this.todo,
       completed: !this.todo.completed,
+      // Keep as Date object for type compatibility
       completed_at: !this.todo.completed ? new Date() : null,
-    });
+    } as Todo;
+
+    console.log('Emitting updated todo:', updatedTodo);
+    this.update.emit(updatedTodo);
+  }
+
+  ngOnChanges() {
+    console.log('Todo item received:', this.todo);
   }
 
   onDelete() {

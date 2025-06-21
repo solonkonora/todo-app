@@ -28,7 +28,7 @@ export class TodosComponent implements OnInit {
   }
 
   loadTodos() {
-    this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
+    this.todoService.getTodos().subscribe((todos: Todo[]) => (this.todos = todos));
   }
 
   // Helper methods for statistics
@@ -45,7 +45,7 @@ export class TodosComponent implements OnInit {
   addTodo(todo: { title: string; description: string }) {
     this.todoService
       .createTodo({ ...todo, completed: false })
-      .subscribe((newTodo) => this.todos.push(newTodo));
+      .subscribe((newTodo: Todo) => this.todos.push(newTodo));
   }
 
   updateTodo(updated: Todo) {
@@ -61,12 +61,12 @@ export class TodosComponent implements OnInit {
     console.log('Sending to API:', updateData);
 
     this.todoService.updateTodo(updated._id!, updateData).subscribe({
-      next: (res) => {
+      next: (res: Todo) => {
         console.log('Update successful', res);
         const idx = this.todos.findIndex((t) => t._id === res._id);
         if (idx > -1) this.todos[idx] = res;
       },
-      error: (err) => {
+      error: (err: { error: { message: any; }; }) => {
         console.error('Update failed', err);
         if (err.error && err.error.message) {
           console.error('Backend error:', err.error.message);

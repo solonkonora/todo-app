@@ -42,21 +42,6 @@ export class TodoItemComponent {
     this.editing = false;
   }
 
-  // toggleComplete() {
-  //   console.log('Toggle complete called for todo:', this.todo);
-
-  //   // Create a clean update object
-  //   const updatedTodo = {
-  //     ...this.todo,
-  //     completed: !this.todo.completed,
-  //     // Only set completed_at if task is being marked complete
-  //     completed_at: !this.todo.completed ? new Date() : null,
-  //   };
-
-  //   console.log('Emitting updated todo:', updatedTodo);
-  //   this.update.emit(updatedTodo);
-  // }
-
   toggleComplete() {
     console.log('Toggle complete called for todo:', this.todo);
 

@@ -1,16 +1,3 @@
-/* .todo-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-.todo-form input,
-.todo-form textarea {
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-} */
-
 .todo-form {
   background: var(--gray-100);
   padding: 1.25rem;
@@ -56,6 +43,7 @@
 .btn-primary {
   background-color: var(--primary);
   color: white;
+  justify-content: center;
 }
 
 .btn-primary:hover {

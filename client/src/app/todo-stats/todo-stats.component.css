@@ -1,9 +1,3 @@
-/* .todo-stats {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
-} */
  .stats-container {
   display: flex;
   justify-content: space-between;

@@ -28,6 +28,24 @@ body {
   padding: 20px;
 }
 
+.todos-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+h1 {
+  justify-self: center;
+  padding: 20px;
+}
+
+.app-content {
+  padding: 1.5rem 2rem 2rem;
+}
+
 button {
   cursor: pointer;
   font-family: 'Poppins', sans-serif;

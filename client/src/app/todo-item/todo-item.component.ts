@@ -25,16 +25,18 @@ export class TodoItemComponent {
     this.editDescription = this.todo.description;
   }
 
-  saveEdit() {
-    if (this.editTitle.trim() && this.editDescription.trim()) {
-      this.update.emit({
-        ...this.todo,
-        title: this.editTitle,
-        description: this.editDescription,
-      });
-      this.editing = false;
-    }
+saveEdit() {
+  console.log('saveEdit called', this.editTitle, this.editDescription);
+  if (this.editTitle.trim() && this.editDescription.trim()) {
+    console.log('Emitting update event');
+    this.update.emit({
+      ...this.todo,
+      title: this.editTitle,
+      description: this.editDescription
+    });
+    this.editing = false;
   }
+}
 
   cancelEdit() {
     this.editing = false;

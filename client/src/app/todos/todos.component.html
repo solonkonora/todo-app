@@ -1,9 +1,26 @@
 <div class="todos-container">
-  <h1>Todo List</h1>
-  <app-todo-form (todoAdd)="addTodo($event)"></app-todo-form>
-  <app-todo-list
-    [todos]="todos"
-    (update)="updateTodo($event)"
-    (delete)="deleteTodo($event)"
-  ></app-todo-list>
-</div> 
+  <div class="app-header">
+    <h1>Task Manager</h1>
+  </div>
+  
+  <div class="app-content">
+    <div class="stats-container">
+      <div class="stat">
+        <strong>{{ todos.length }}</strong> Total
+      </div>
+      <div class="stat">
+        <strong>{{ getActiveCount() }}</strong> Active
+      </div>
+      <div class="stat">
+        <strong>{{ getCompletedCount() }}</strong> Completed
+      </div>
+    </div>
+    
+    <app-todo-form (todoAdd)="addTodo($event)"></app-todo-form>
+    <app-todo-list
+      [todos]="todos"
+      (update)="updateTodo($event)"
+      (onDelete)="deleteTodo($event)"
+    ></app-todo-list>
+  </div>
+</div>

@@ -25,18 +25,43 @@ export class TodosComponent implements OnInit {
     this.todoService.getTodos().subscribe(todos => (this.todos = todos));
   }
 
+  // Helper methods for statistics
+  getActiveCount(): number {
+    if (!this.todos) return 0;
+    return this.todos.filter(t => !t.completed).length;
+  }
+
+  getCompletedCount(): number {
+    if (!this.todos) return 0;
+    return this.todos.filter(t => t.completed).length;
+  }
+
   addTodo(todo: { title: string; description: string }) {
     this.todoService
       .createTodo({ ...todo, completed: false })
       .subscribe(newTodo => this.todos.push(newTodo));
   }
 
-  updateTodo(updated: Todo) {
-    this.todoService.updateTodo(updated._id!, updated).subscribe(res => {
+updateTodo(updated: Todo) {
+  console.log('updateTodo called with', updated);
+  
+  // Create a clean update object with only the fields the API needs
+  const updateData = {
+    title: updated.title,
+    description: updated.description,
+    completed: updated.completed,
+    completed_at: updated.completed_at
+  };
+  
+  this.todoService.updateTodo(updated._id!, updateData).subscribe({
+    next: (res) => {
+      console.log('Update successful', res);
       const idx = this.todos.findIndex(t => t._id === res._id);
       if (idx > -1) this.todos[idx] = res;
-    });
-  }
+    },
+    error: (err) => console.error('Update failed', err)
+  });
+}
 
   deleteTodo(id: string) {
     this.todoService.deleteTodo(id).subscribe(() => {

@@ -1,15 +1,51 @@
 <div class="todo-item" [class.completed]="todo.completed">
-  <input type="checkbox" [checked]="todo.completed" (change)="toggleComplete()" />
   <div *ngIf="!editing">
-    <h3>{{ todo.title }}</h3>
-    <p>{{ todo.description }}</p>
-    <button (click)="startEdit()">Edit</button>
-    <button (click)="onDelete()">Delete</button>
+    <div class="todo-content">
+      <input 
+        type="checkbox" 
+        class="todo-checkbox" 
+        [checked]="todo.completed" 
+        (change)="toggleComplete()" 
+      />
+      <div class="todo-text">
+        <h3 class="todo-title">{{ todo.title }}</h3>
+        <p class="todo-description">{{ todo.description }}</p>
+      </div>
+    </div>
+    
+    <div class="todo-actions">
+      <button class="todo-btn todo-btn-edit" (click)="startEdit()">Edit</button>
+      <button class="todo-btn todo-btn-delete" (click)="onDelete()">Delete</button>
+    </div>
   </div>
-  <div *ngIf="editing">
-    <input [(ngModel)]="editTitle" maxlength="255" />
-    <textarea [(ngModel)]="editDescription"></textarea>
-    <button (click)="saveEdit()">Save</button>
-    <button (click)="cancelEdit()">Cancel</button>
+  
+  <div *ngIf="editing" class="edit-form">
+    <div class="form-group">
+      <label for="editTitle">Title</label>
+      <input 
+        id="editTitle" 
+        [(ngModel)]="editTitle" 
+        maxlength="255" 
+      />
+    </div>
+    
+    <div class="form-group">
+      <label for="editDescription">Description</label>
+      <textarea 
+        id="editDescription" 
+        [(ngModel)]="editDescription"
+      ></textarea>
+    </div>
+    
+    <div class="edit-form-actions">
+      <button class="btn-cancel" (click)="cancelEdit()">Cancel</button>
+      <button 
+        class="btn-save" 
+        (click)="saveEdit()"
+        [disabled]="!editTitle.trim() || !editDescription.trim()"
+      >
+        Save
+      </button>
+    </div>
   </div>
 </div>

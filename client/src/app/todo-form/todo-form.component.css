@@ -1,4 +1,4 @@
-.todo-form {
+/* .todo-form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -9,4 +9,60 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
+} */
+
+.todo-form {
+  background: var(--gray-100);
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--gray-800);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--gray-600);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

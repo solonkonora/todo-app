@@ -1,17 +1,115 @@
 .todo-item {
-  background: #f9f9f9;
-  border-radius: 6px;
-  padding: 1rem;
+  background: white;
+  border-radius: 8px;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.todo-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.todo-item.completed {
+  border-left: 4px solid var(--success);
+}
+
+.todo-content {
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: flex-start;
 }
-.todo-item.completed h3,
-.todo-item.completed p {
+
+.todo-checkbox {
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+  transform: scale(1.2);
+}
+
+.todo-text {
+  flex: 1;
+}
+
+.todo-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--gray-800);
+  font-weight: 500;
+}
+
+.todo-description {
+  margin: 0.5rem 0 0;
+  color: var(--gray-600);
+  font-size: 0.9rem;
+}
+
+.todo-item.completed .todo-title,
+.todo-item.completed .todo-description {
   text-decoration: line-through;
-  color: #888;
+  color: var(--gray-600);
+  opacity: 0.8;
 }
-.todo-item button {
-  margin-right: 0.5rem;
+
+.todo-actions {
+  display: flex;
+  border-top: 1px solid var(--gray-200);
+}
+
+.todo-btn {
+  flex: 1;
+  padding: 0.6rem;
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  transition: background-color 0.2s;
+}
+
+.todo-btn:hover {
+  background-color: var(--gray-100);
+  color: var(--gray-800);
+}
+
+.todo-btn-edit:hover {
+  color: var(--primary);
+}
+
+.todo-btn-delete:hover {
+  color: var(--danger);
+}
+
+.edit-form {
+  padding: 1rem;
+  background: var(--gray-100);
+}
+
+.edit-form .form-group {
+  margin-bottom: 0.75rem;
+}
+
+.edit-form-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.btn-save {
+  background-color: var(--success);
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #0da271;
+}
+
+.btn-cancel {
+  background-color: var(--gray-200);
+  color: var(--gray-800);
+}
+
+.btn-cancel:hover {
+  background-color: var(--gray-300);
 }

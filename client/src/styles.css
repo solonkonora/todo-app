@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-body {
+/* body {
   font-family: Arial, sans-serif;
   padding: 20px;
   background-color: #f5f5f5;
@@ -7,4 +7,59 @@ body {
 
 h1 {
   color: #2c3e50;
+} */
+
+/* Global styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-600: #4b5563;
+  --gray-800: #1f2937;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: var(--gray-800);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+}
+
+input, textarea {
+  font-family: 'Poppins', sans-serif;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--gray-300);
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }

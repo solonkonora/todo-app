@@ -1,8 +1,32 @@
 .todo-list {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
-.todo-list li {
+
+.todo-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
+}
+
+.todo-list-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray-600);
+  background: var(--gray-100);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.empty-state-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.5;
 }

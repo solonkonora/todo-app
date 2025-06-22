@@ -1,5 +1,16 @@
-<div class="todo-stats">
-  <span>Total: {{ total }}</span>
-  <span>Completed: {{ completed }}</span>
-  <span>Remaining: {{ remaining }}</span>
+<div class="stats-container">
+  <div class="stat-card total">
+    <div class="stat-value">{{ total }}</div>
+    <div class="stat-label">Total Tasks</div>
+  </div>
+  
+  <div class="stat-card active">
+    <div class="stat-value">{{ remaining }}</div>
+    <div class="stat-label">Active</div>
+  </div>
+  
+  <div class="stat-card completed">
+    <div class="stat-value">{{ completed }}</div>
+    <div class="stat-label">Completed</div>
+  </div>
 </div>

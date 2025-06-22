@@ -26,7 +26,9 @@ export class TodoItemComponent {
   }
 
   saveEdit() {
+    console.log('saveEdit called', this.editTitle, this.editDescription);
     if (this.editTitle.trim() && this.editDescription.trim()) {
+      console.log('Emitting update event');
       this.update.emit({
         ...this.todo,
         title: this.editTitle,
@@ -41,11 +43,22 @@ export class TodoItemComponent {
   }
 
   toggleComplete() {
-    this.update.emit({
+    console.log('Toggle complete called for todo:', this.todo);
+
+    // Create a clean update object and cast it to Todo
+    const updatedTodo = {
       ...this.todo,
       completed: !this.todo.completed,
+      // Keep as Date object for type compatibility
       completed_at: !this.todo.completed ? new Date() : null,
-    });
+    } as Todo;
+
+    console.log('Emitting updated todo:', updatedTodo);
+    this.update.emit(updatedTodo);
+  }
+
+  ngOnChanges() {
+    console.log('Todo item received:', this.todo);
   }
 
   onDelete() {

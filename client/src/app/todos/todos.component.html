@@ -1,9 +1,18 @@
 <div class="todos-container">
-  <h1>Todo List</h1>
-  <app-todo-form (todoAdd)="addTodo($event)"></app-todo-form>
-  <app-todo-list
-    [todos]="todos"
-    (update)="updateTodo($event)"
-    (delete)="deleteTodo($event)"
-  ></app-todo-list>
-</div> 
+  <div class="app-header">
+    <h1>Task Manager</h1>
+  </div>
+  
+  <div class="app-content">
+    <!-- Replace the stats section with the new component -->
+    <app-todo-stats [todos]="todos"></app-todo-stats>
+  
+    
+    <app-todo-form (todoAdd)="addTodo($event)"></app-todo-form>
+    <app-todo-list
+      [todos]="todos"
+      (update)="updateTodo($event)"
+      (onDelete)="deleteTodo($event)"
+    ></app-todo-list>
+  </div>
+</div>

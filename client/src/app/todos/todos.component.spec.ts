@@ -59,10 +59,6 @@ describe('TodosComponent', () => {
     fixture.detectChanges();
   });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-
   it('should load todos on initialization', () => {
     expect(todoService.getTodos).toHaveBeenCalled();
     expect(component.todos.length).toBe(2);

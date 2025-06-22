@@ -7,8 +7,11 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.enableCors();
-
+  app.enableCors({
+    origin: ['https://todo-hf3obmsmm-norasolonkos-projects.vercel.app'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
   // Set up global validation pipes
   app.useGlobalPipes(
     new ValidationPipe({
